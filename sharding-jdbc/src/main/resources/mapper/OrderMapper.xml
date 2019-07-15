@@ -1,0 +1,22 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.tervest.shardingsphere.shardingjdbc.dao.OrderDao">
+   <insert id="saveOrder" >
+      INSERT INTO t_order (order_id, user_id) VALUES (#{order.orderId}, #{order.userId})
+   </insert>
+    
+    <select id="listOrders" resultType="top.tervest.shardingsphere.shardingjdbc.entity.po.Order">
+          SELECT * FROM t_order limit 10
+    </select>
+
+    <update id="updateOrder">
+        UPDATE t_order SET order_id = #{order.orderId} WHERE user_id = #{order.userId}
+    </update>
+
+    <delete id="deleteOrder">
+         DELETE FROM t_order WHERE order_id = #{order.orderId} AND user_id = #{order.userId}
+    </delete>
+
+    <select id="listOrdersSort" resultType="top.tervest.shardingsphere.shardingjdbc.entity.po.Order">
+          SELECT * FROM t_order  ORDER BY order_id limit 10
+    </select>
+</mapper>
