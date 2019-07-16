@@ -4,7 +4,7 @@
       INSERT INTO t_order (order_id, user_id) VALUES (#{order.orderId}, #{order.userId})
    </insert>
     
-    <select id="listOrders" resultType="top.tervest.shardingsphere.shardingjdbc.entity.po.Order">
+    <select id="listOrders" resultType="top.tervest.shardingsphere.shardingjdbc.entity.po.OrderPo">
           SELECT * FROM t_order limit 10
     </select>
 
@@ -16,7 +16,11 @@
          DELETE FROM t_order WHERE order_id = #{order.orderId} AND user_id = #{order.userId}
     </delete>
 
-    <select id="listOrdersSort" resultType="top.tervest.shardingsphere.shardingjdbc.entity.po.Order">
-          SELECT * FROM t_order  ORDER BY order_id limit 10
+    <select id="listOrdersSort" resultType="top.tervest.shardingsphere.shardingjdbc.entity.po.OrderPo">
+          SELECT * FROM t_order  ORDER BY order_id
+    </select>
+
+    <select id="listOrderGroup" resultType="top.tervest.shardingsphere.shardingjdbc.entity.po.OrderCountDo">
+          SELECT user_id,COUNT(user_id) count FROM t_order GROUP BY user_id
     </select>
 </mapper>

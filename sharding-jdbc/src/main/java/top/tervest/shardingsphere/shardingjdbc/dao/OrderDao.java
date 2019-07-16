@@ -2,7 +2,8 @@ package top.tervest.shardingsphere.shardingjdbc.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import top.tervest.shardingsphere.shardingjdbc.entity.po.Order;
+import top.tervest.shardingsphere.shardingjdbc.entity.po.OrderCountDo;
+import top.tervest.shardingsphere.shardingjdbc.entity.po.OrderPo;
 
 import java.util.List;
 
@@ -13,13 +14,42 @@ import java.util.List;
 @Mapper
 public interface OrderDao {
 
-    Integer saveOrder(@Param("order") Order order);
+    /**
+     * 保存Order
+     * @param order
+     * @return
+     */
+    Integer saveOrder(@Param("order") OrderPo order);
 
-    List<Order> listOrders();
+    /**
+     * 获取Orders
+     * @return
+     */
+    List<OrderPo> listOrders();
 
-    int updateOrder(@Param("order") Order order);
+    /**
+     * 更新Order
+     * @param order
+     * @return
+     */
+    int updateOrder(@Param("order") OrderPo order);
 
-    int deleteOrder(@Param("order") Order order);
+    /**
+     * 删除Order
+     * @param order
+     * @return
+     */
+    int deleteOrder(@Param("order") OrderPo order);
 
-    List<Order> listOrdersSort();
+    /**
+     * 获取Oders并排序
+     * @return
+     */
+    List<OrderPo> listOrdersSort();
+
+    /**
+     * Order分组统计
+     * @return
+     */
+    List<OrderCountDo> listOrderGroup();
 }

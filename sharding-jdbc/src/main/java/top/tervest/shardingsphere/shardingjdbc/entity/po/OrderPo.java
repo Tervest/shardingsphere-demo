@@ -9,7 +9,7 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class Order {
+public class OrderPo {
     private Integer orderId;
     private Integer userId;
 }
