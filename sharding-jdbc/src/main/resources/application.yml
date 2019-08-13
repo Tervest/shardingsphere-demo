@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: test
+
+  datasource:
+#      url: jdbc:mysql://${jdbc.ip}:${jdbc.port}/${jdbc.database}?useUnicode=true&characterEncoding=utf8&useSSL=false&allowMultiQueries=true&serverTimezone=GMT%2B8
+#      username: ${jdbc.username}
+#      password: ${jdbc.password}
+    type: com.alibaba.druid.pool.DruidDataSource
+    drivers: stata
+    maxAcer-class-name: com.mysql.jdbc.Driver
+    filttive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20

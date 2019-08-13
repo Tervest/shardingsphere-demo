@@ -7,7 +7,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import top.tervest.shardingsphere.shardingjdbc.dao.HTP1Dao;
 import top.tervest.shardingsphere.shardingjdbc.dao.OrderDao;
+import top.tervest.shardingsphere.shardingjdbc.entity.po.Htp1Do;
 import top.tervest.shardingsphere.shardingjdbc.entity.po.OrderCountDo;
 import top.tervest.shardingsphere.shardingjdbc.entity.po.OrderPo;
 
@@ -19,10 +21,15 @@ public class ShardingJdbcApplicationTests {
 
     @Autowired
     OrderDao orderDao;
+    @Autowired
+    HTP1Dao htp1Dao;
 
     @Test
     public void contextLoads() {
+        List<Htp1Do> htp1Dos = htp1Dao.listHtp1();
+        print(htp1Dos);
     }
+
 
     @Test
     public void testListOrders(){

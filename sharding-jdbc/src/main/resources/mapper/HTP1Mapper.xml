@@ -1,0 +1,6 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.tervest.shardingsphere.shardingjdbc.dao.HTP1Dao">
+    <select id="listHtp1" resultType="top.tervest.shardingsphere.shardingjdbc.entity.po.Htp1Do">
+        SELECT EMRID emr_id,P1001 p1001 FROM DA_MEDICAL_HPT1 where  EMRID = '11797416_1472109' and COLLECT_TIME = '2019-08-08 12:27:51'
+    </select>
+</mapper>

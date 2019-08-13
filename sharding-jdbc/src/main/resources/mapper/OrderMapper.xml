@@ -5,7 +5,7 @@
    </insert>
     
     <select id="listOrders" resultType="top.tervest.shardingsphere.shardingjdbc.entity.po.OrderPo">
-          SELECT * FROM t_order limit 10
+          SELECT * FROM t_order where order_id &lt; 4 limit 10
     </select>
 
     <update id="updateOrder">
